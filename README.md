@@ -20,3 +20,9 @@ npm run dev
 
 The shared application frame and routes live in `frontend/src/app/`.
 Bookkeeping views are organized by feature in `frontend/src/views/`.
+
+## Development
+
+The planned local backend uses Tauri 2 and SQLite. See the
+[backend implementation plan](docs/backend-implementation-plan.md) for the
+architecture, implementation phases, and acceptance criteria.

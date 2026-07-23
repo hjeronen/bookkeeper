@@ -5,6 +5,15 @@ unless this file explicitly replaces them.
 
 ## Working principles
 
+- Read every relevant file before editing it. Inspect nearby components,
+  helpers, tests, configuration, and documentation as needed to understand the
+  local context.
+- Follow the patterns established in this file and in `docs/developer/` when
+  that directory is present. If instructions conflict, follow the more
+  specific instruction for the code being changed.
+- Approach changes with a senior architect mindset: consider performance,
+  maintainability, testability, failure modes, and future extension without
+  over-engineering the immediate solution.
 - Make the smallest coherent change that solves the requested problem.
 - Preserve existing behavior unless the task explicitly calls for a behavior
   change.
@@ -12,8 +21,13 @@ unless this file explicitly replaces them.
   into a feature or fix.
 - Prefer clear, boring code over clever abstractions. Extract an abstraction
   only when it gives a concrete benefit.
+- Match the formatting, naming, component structure, import style, and other
+  conventions of the surrounding code.
+- Batch independent file reads, searches, and verification operations where
+  practical to reduce unnecessary tool round trips.
 - Before finishing, remove dead code, unused imports, temporary logging, and
   placeholder comments introduced by the change.
+- Do not create a Git commit unless the user explicitly requests one.
 
 ## Project structure
 
@@ -87,6 +101,15 @@ frontend/src/
   views.
 - Use `import type` for type-only imports.
 
+## Tauri and Rust
+
+- Use Tauri v2 APIs, configuration, plugins, examples, and documentation only.
+  Do not introduce Tauri v1 patterns.
+- Use modern Rust formatting with captured identifiers, for example
+  `format!("{variable}")` instead of `format!("{}", variable)`.
+- Match the surrounding Rust style and run the appropriate formatter and
+  checks when Rust code is changed.
+
 ## Bookkeeping and data correctness
 
 - Treat financial correctness as a core requirement. Do not use binary
@@ -129,9 +152,16 @@ npm run build
 
 - Do not claim a command passed unless it was run successfully. If verification
   is not possible, state what was not run and why.
+- Do not start a development server. Ask the user to run the relevant npm
+  development command and report back when interactive or browser-based
+  verification is needed.
 
 ## Dependencies and documentation
 
+- This project uses npm only. Use `npm install`, `npm ci`, `npm run`, and
+  npm-compatible commands. Never use pnpm, Yarn, Bun, or their lockfiles.
+- Preserve `package-lock.json` and update it with npm whenever dependencies
+  change.
 - Prefer the platform and existing dependencies before adding a package.
 - Add a dependency only when it materially reduces risk or complexity; explain
   the reason in the change summary.
