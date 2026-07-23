@@ -1,5 +1,5 @@
 export const formatMoney = (amountMinor: number, currency = 'EUR') =>
-  new Intl.NumberFormat('en-FI', {
+  new Intl.NumberFormat('fi-FI', {
     style: 'currency',
     currency,
     minimumFractionDigits: 2,
