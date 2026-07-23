@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.navbar__link {
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.45rem;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.navbar__link:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}

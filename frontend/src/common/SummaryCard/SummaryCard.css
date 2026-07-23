@@ -1,0 +1,50 @@
+.summary-card {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.25rem;
+  background: var(--muted);
+  content: '';
+}
+
+.summary-card--income::before {
+  background: var(--positive);
+}
+
+.summary-card--expense::before {
+  background: var(--negative);
+}
+
+.summary-card--balance::before {
+  background: var(--effect);
+}
+
+.summary-card__label {
+  margin: 0 0 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.summary-card__value {
+  overflow: hidden;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

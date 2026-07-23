@@ -1,0 +1,76 @@
+.app-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.app-table__head {
+  background-color: #edf3f2;
+  color: var(--primary-deep);
+}
+
+.app-table__header-cell {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-table__header-cell--numeric {
+  text-align: right;
+}
+
+.app-table__body {
+  background-color: var(--surface);
+}
+
+.app-table--striped
+  .app-table__body--should-stripe
+  .app-table__row:nth-child(even) {
+  background-color: var(--surface-muted);
+}
+
+.app-table__body .app-table__row:hover {
+  background-color: #f1f6f5;
+}
+
+.app-table__data-cell {
+  min-width: 8rem;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.app-table__body .app-table__row:last-child .app-table__data-cell {
+  border-bottom: 0;
+}
+
+.app-table__data-cell--numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.app-table__data-cell--positive {
+  color: var(--positive);
+}
+
+.app-table__data-cell--negative {
+  color: var(--negative);
+}
+
+.app-table__data-cell--strong {
+  font-weight: 750;
+}
+
+.app-table--compact .app-table__header-cell,
+.app-table--compact .app-table__data-cell {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}

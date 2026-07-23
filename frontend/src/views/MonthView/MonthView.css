@@ -1,0 +1,123 @@
+.month-view__ledger {
+  margin-top: 2rem;
+}
+
+.day-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.day-group {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.day-group__summary {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) auto 1.5rem;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.day-group__summary::-webkit-details-marker {
+  display: none;
+}
+
+.day-group__summary:hover {
+  background: var(--surface-muted);
+}
+
+.day-group__summary:focus-visible {
+  outline: 3px solid rgba(95, 149, 152, 0.4);
+  outline-offset: -3px;
+}
+
+.day-group__date {
+  display: grid;
+  gap: 0.15rem;
+  font-weight: 700;
+}
+
+.day-group__date small {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.day-group__totals {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.day-group__totals > span {
+  display: grid;
+  gap: 0.1rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.day-group__totals strong {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.day-group__chevron {
+  color: var(--primary);
+  font-weight: 700;
+  transition: transform 150ms ease;
+}
+
+.day-group[open] .day-group__chevron {
+  transform: rotate(180deg);
+}
+
+.day-group[open] .day-group__summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.day-group .app-table {
+  border-radius: 0;
+}
+
+@media (max-width: 760px) {
+  .day-group__summary {
+    grid-template-columns: 1fr 1.5rem;
+  }
+
+  .day-group__totals {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .day-group__chevron {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .day-group__totals {
+    gap: 0.75rem;
+  }
+
+  .day-group__totals > span {
+    font-size: 0.62rem;
+  }
+
+  .day-group__totals strong {
+    font-size: 0.78rem;
+  }
+}
